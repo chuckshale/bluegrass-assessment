@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import {ScrollView, TextInput} from 'react-native';
 import SecondaryButton from '../components/SecondaryButton';
 import Context from '../context/context';
@@ -30,6 +30,7 @@ const ProviderMessageScreen = ({navigation, route}) => {
         debugger;
         setRes(res.body.error);
         console.log('apiCall', res.body.error);
+        alert(res.body.error);
         // use this data in overview and service list
       } else {
         throw new Error('Unable to retrieve profile');
@@ -37,7 +38,6 @@ const ProviderMessageScreen = ({navigation, route}) => {
     } catch (error) {
       console.log(error);
     }
-    alert(res);
   };
 
   return (
